@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivan | Front-End Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Ivan<span>.dev</span></a>
+    <button class="nav-toggle" aria-label="Otvori izbornik" aria-expanded="false">☰</button>
+    <nav class="site-nav" aria-label="Glavna navigacija">
+      <ul role="presentation">
+        <li><a href="index.html" aria-current="page">Projekti</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><button class="theme-toggle" aria-label="Promijeni temu">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Bok, ja sam <span class="accent">Ivan</span></h1>
+      <p class="lead">Front-end developer u nastajanju. Gradim pristupačne, responzivne web stranice s HTML-om, CSS-om i JavaScriptom.</p>
+      <a class="btn" href="#projects">Pogledaj projekte ↓</a>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>Odabrani projekti</h2>
+
+      <div class="filters" role="group" aria-label="Filtriraj projekte po tehnologiji">
+        <button class="filter active" data-filter="all">Svi</button>
+        <button class="filter" data-filter="html">HTML/CSS</button>
+        <button class="filter" data-filter="js">JavaScript</button>
+      </div>
+
+      <div class="grid">
+        <article class="card" data-tech="html">
+          <div class="thumb thumb-tea" role="img" aria-label="Ilustracija čajne šalice">🍵</div>
+          <div class="card-body">
+            <h3>Tea Cozy</h3>
+            <p>Landing stranica čajane s mozaikom slika, sekcijom lokacija i fiksnim zaglavljem.</p>
+            <ul class="tags" aria-label="Tehnologije"><li>HTML</li><li>CSS</li><li>Flexbox</li></ul>
+          </div>
+        </article>
+
+        <article class="card" data-tech="html">
+          <div class="thumb thumb-pup" role="img" aria-label="Ilustracija psa">🐶</div>
+          <div class="card-body">
+            <h3>PupSpa</h3>
+            <p>Stranica salona za pse s rasporedom u CSS Gridu.</p>
+            <ul class="tags" aria-label="Tehnologije"><li>HTML</li><li>CSS Grid</li></ul>
+          </div>
+        </article>
+
+        <article class="card" data-tech="html">
+          <div class="thumb thumb-foto" role="img" aria-label="Ilustracija fotoaparata">📷</div>
+          <div class="card-body">
+            <h3>Fotomatic</h3>
+            <p>Responzivna stranica za aplikaciju za fotografije, s media queryjima i fluidnim jedinicama.</p>
+            <ul class="tags" aria-label="Tehnologije"><li>HTML</li><li>CSS</li><li>Responsive</li></ul>
+          </div>
+        </article>
+
+        <article class="card" data-tech="js">
+          <div class="thumb thumb-piano" role="img" aria-label="Ilustracija klavira">🎹</div>
+          <div class="card-body">
+            <h3>Piano Keys</h3>
+            <p>Interaktivni klavir koji svira pjesmu „Happy Birthday” pomoću DOM eventova.</p>
+            <ul class="tags" aria-label="Tehnologije"><li>JavaScript</li><li>DOM Events</li></ul>
+          </div>
+        </article>
+
+        <article class="card" data-tech="js">
+          <div class="thumb thumb-card" role="img" aria-label="Ilustracija kreditne kartice">💳</div>
+          <div class="card-body">
+            <h3>Credit Card Checker</h3>
+            <p>Validacija kartica Luhnovim algoritmom i popis izdavatelja nevažećih kartica.</p>
+            <ul class="tags" aria-label="Tehnologije"><li>JavaScript</li><li>Arrays</li></ul>
+          </div>
+        </article>
+
+        <article class="card" data-tech="js">
+          <div class="thumb thumb-dna" role="img" aria-label="Ilustracija DNK">🧬</div>
+          <div class="card-body">
+            <h3>Mysterious Organism</h3>
+            <p>Simulacija DNK organizma P. aequor: mutacije, usporedba i komplementarni lanac.</p>
+            <ul class="tags" aria-label="Tehnologije"><li>JavaScript</li><li>Objects</li><li>Factory functions</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Ivan · Napravljeno u sklopu Codecademy Front-End Engineer puta</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
