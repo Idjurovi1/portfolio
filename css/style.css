@@ -1,0 +1,253 @@
+/* ===== Varijable (svijetla i tamna tema) ===== */
+:root {
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --text: #1d1d2c;
+  --muted: #5b5b72;
+  --accent: #5a3fd6;
+  --accent-contrast: #ffffff;
+  --border: #e3e3ee;
+  --radius: 14px;
+  --shadow: 0 6px 20px rgba(29, 29, 44, 0.08);
+}
+
+body.dark {
+  --bg: #12121c;
+  --surface: #1d1d2c;
+  --text: #f1f1f7;
+  --muted: #b4b4c8;
+  --accent: #a693ff;
+  --accent-contrast: #12121c;
+  --border: #2e2e42;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Osnova ===== */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;           /* 16px – čitljivo */
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a { color: var(--accent); }
+
+h1, h2, h3 { line-height: 1.2; }
+
+/* ===== Zaglavlje i navigacija ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.logo span { color: var(--accent); }
+
+.site-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--accent); }
+
+.theme-toggle,
+.nav-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.nav-toggle { display: none; }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 5rem 5% 3rem;
+  max-width: 900px;
+}
+.hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 1rem; }
+.accent { color: var(--accent); }
+.lead { font-size: 1.2rem; color: var(--muted); max-width: 60ch; }
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.4rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* Vidljiv fokus za tipkovnicu (a11y) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== Projekti ===== */
+.projects { padding: 2rem 5% 4rem; }
+
+.filters { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+.filter {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+.filter.active { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover { transform: translateY(-4px); }
+.card.hidden { display: none; }
+
+.thumb {
+  height: 160px;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+}
+.thumb-tea   { background: linear-gradient(135deg, #f6d365, #fda085); }
+.thumb-pup   { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
+.thumb-foto  { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+.thumb-piano { background: linear-gradient(135deg, #434343, #8e8e8e); }
+.thumb-card  { background: linear-gradient(135deg, #667eea, #764ba2); }
+.thumb-dna   { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+.card-body { padding: 1.2rem 1.3rem 1.4rem; }
+.card-body h3 { margin: 0 0 0.5rem; }
+.card-body p { margin: 0 0 1rem; color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+.tags li {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+/* ===== Kontakt ===== */
+.contact { display: grid; place-items: center; padding: 3rem 5%; }
+
+.contact-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.avatar { font-size: 4rem; }
+
+.contact-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+.contact-list li { margin: 0.5rem 0; font-size: 1.1rem; }
+
+.contact-form { display: grid; gap: 0.4rem; text-align: left; margin-top: 1.5rem; }
+.contact-form label { font-weight: 600; margin-top: 0.6rem; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.contact-form .invalid { border-color: #d93025; }
+.form-status { min-height: 1.5em; font-weight: 600; }
+
+/* ===== Podnožje ===== */
+.site-footer {
+  text-align: center;
+  padding: 2rem 5%;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Responzivnost ===== */
+@media (max-width: 640px) {
+  .nav-toggle { display: block; }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: none;
+  }
+  .site-nav.open { display: block; }
+  .site-nav ul { flex-direction: column; padding: 1rem 0; gap: 1rem; }
+
+  .hero { padding-top: 3rem; }
+}
+
+/* Poštuj korisnike koji ne žele animacije */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
